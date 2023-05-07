@@ -1,0 +1,123 @@
+@import url("//cdn.web-fonts.ge/fonts/alk-rex-bold/css/alk-rex-bold.min.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "ALK Rex Bold", sans-serif;
+    font-size: 16px;
+}
+
+body {
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 105vw;
+    height: 105vh;
+    position: absolute;
+    z-index: -999;
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(23, 39, 7, 0.41);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.7px);
+    -webkit-backdrop-filter: blur(11.7px);
+    z-index: -99;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.2rem;
+}
+
+li {
+    list-style-type: none;
+}
+
+.logo-img {
+    width: 150px;
+    border-radius: 50%;    
+    -webkit-mask-image: linear-gradient(245deg,#12f506 25%,rgba(55, 255, 0, 0.6) 50%,#29e119 75%);
+    mask-image: linear-gradient(140deg,#33ff00 25%,rgba(0, 255, 17, 0.2) 50%,#35ea19 75%);
+    -webkit-mask-size: 800%;
+    mask-size: 800%;
+    -webkit-mask-position: 0;
+    mask-position: 0;
+    cursor: pointer;
+}
+
+
+.logo-img:hover {
+    transition: mask-position 2s ease,-webkit-mask-position 2s ease;
+    -webkit-mask-position: 120%;
+    mask-position: 120%;
+    opacity: 1;
+}
+
+header {
+    width: 100vw;
+    height: 220px;
+    background: rgb(66,99,58);
+    background: linear-gradient(90deg, rgba(66,99,58,0.1) 0%, rgba(27,73,25,0.1) 0%, rgba(34,73,10,0.1) 50%, rgba(168,189,168,0.1) 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 200px;
+    z-index: 999;
+}
+
+
+ul {
+    display: flex;
+    width: 660px;
+    justify-content: space-between;
+    position: relative;
+    right: 130px;
+}
+
+li {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+    margin: 0 50px;
+}
+  
+li::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #53f669;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
+}
+  
+li:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.easter-egg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 350px;
+    opacity: 0;
+    transition: 3s;
+}
+
+.easter-egg:hover {
+    opacity: 1;
+    filter: blur(2px);
+}
