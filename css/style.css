@@ -1,123 +1,121 @@
-@import url("//cdn.web-fonts.ge/fonts/alk-rex-bold/css/alk-rex-bold.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "ALK Rex Bold", sans-serif;
-    font-size: 16px;
 }
 
 body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    font-family: 'Roboto Mono', monospace;
+    background-image: url(../images/goa-clean-bg.png);
+    background-size: cover;
+    color: white;
+}   
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Roboto Mono', monospace;
+    background-image: url(../images/goa-clean-bg.png);
+    background-size: cover;
+    background-color: black;
 }
 
-.hero-img {
-    width: 105vw;
-    height: 105vh;
+canvas {
     position: absolute;
-    z-index: -999;
-}
-
-.cover {
+    z-index: 99;
+    opacity: 1;
     width: 100%;
-    height: 100%;
-    position: absolute;
-    background: rgba(23, 39, 7, 0.41);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(11.7px);
-    -webkit-backdrop-filter: blur(11.7px);
-    z-index: -99;
+    animation-name: canvaAnimation;
+    animation-duration: 11s;
+    animation-fill-mode: forwards;
 }
 
 a {
     text-decoration: none;
-    color: #fff;
-    font-size: 2.2rem;
+    color: white;
 }
 
-li {
-    list-style-type: none;
-}
-
-.logo-img {
-    width: 150px;
-    border-radius: 50%;    
-    -webkit-mask-image: linear-gradient(245deg,#12f506 25%,rgba(55, 255, 0, 0.6) 50%,#29e119 75%);
-    mask-image: linear-gradient(140deg,#33ff00 25%,rgba(0, 255, 17, 0.2) 50%,#35ea19 75%);
-    -webkit-mask-size: 800%;
-    mask-size: 800%;
-    -webkit-mask-position: 0;
-    mask-position: 0;
-    cursor: pointer;
-}
-
-
-.logo-img:hover {
-    transition: mask-position 2s ease,-webkit-mask-position 2s ease;
-    -webkit-mask-position: 120%;
-    mask-position: 120%;
-    opacity: 1;
-}
-
-header {
-    width: 100vw;
-    height: 220px;
-    background: rgb(66,99,58);
-    background: linear-gradient(90deg, rgba(66,99,58,0.1) 0%, rgba(27,73,25,0.1) 0%, rgba(34,73,10,0.1) 50%, rgba(168,189,168,0.1) 100%);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 200px;
+main {
     z-index: 999;
-}
-
-
-ul {
+    width: 60%;
+    height: 50%;
     display: flex;
-    width: 660px;
-    justify-content: space-between;
-    position: relative;
-    right: 130px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 1px solid white;
+    transition: .6s ease-out;
+    background: transparent radial-gradient(at calc(var(--mouse-x, 0) * 100%) calc(var(--mouse-y, 0) * 100%), rgba(91, 134, 83, 0.7), rgb(24, 31, 24)) no-repeat 0 0;
+    animation-name: mainAnimation;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
 }
 
-li {
-    display: inline-block;
-    position: relative;
-    color: #0087ca;
-    margin: 0 50px;
-}
-  
-li::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #53f669;
-    transform-origin: bottom right;
-    transition: transform 0.5s ease-out;
-}
-  
-li:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+main h1 {
+    text-shadow: 0 0 20px white;
+    transition: .6s ease-out;
+    font-size: 20px;
+    animation-name: textAnimation;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
 }
 
-.easter-egg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    height: 350px;
-    opacity: 0;
-    transition: 3s;
+main:hover {
+    scale: 1.1;
+    background-color: rgba(255,255,255,.1);
+            transition: all 0.4s ease-in-out;
 }
 
-.easter-egg:hover {
-    opacity: 1;
-    filter: blur(2px);
+main h1:hover {
+    text-shadow: 0 0 40px white;
+}
+
+@keyframes canvaAnimation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .3;
+    }
+}
+
+@keyframes mainAnimation {
+    0% {
+        opacity: 0;
+        border-radius: 50%;
+        box-shadow: 0 0 150px white;
+        width: 0;
+        height: 0;
+        font-size: 0;
+    }
+    100% {
+        box-shadow: 0 0 100px white;
+        width: 400px;
+        height: 400px;
+        font-size: 1rem; 
+        border-radius: 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes textAnimation {
+    0% {
+        font-size: 0;
+    }
+    50% {
+        font-size: 1rem;
+    }
+    100% {
+        font-size: 3rem;
+    }
 }
